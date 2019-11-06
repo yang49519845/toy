@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div></div>
+</body>
+<script>
+
+  // 块级作用域
+  /**
+   *
+   *  因为 index 是 var 声明的，所以全局中，只有一个 index
+   *  每循环一次 index 都会发生改变，但是每个数组中function打印的index
+   *  都是全局的 index 也就是说 数组中所有的 index 都指向同一个 index  
+   *
+      var a = [];
+      for (var index = 0; index < 10; index++) {
+        a[index] = function () {
+          console.log(index)
+        }
+      }
+      a[6](); // 10
+   **/
+
+   /**
+    *
+    * 当 index 是 let 声明的时候，index 只在本轮的循环中有效
+    * 所以每次循环时候，index 都是一个新的变量
+    * 所以输出为 6
+    * 既然是新的变量，怎么知道上一次的 index 是多少
+    * 因为js引擎内部记住了上一次循环的值，初始本轮变量 index 的时候，就在上一轮的基础上进行计算
+    *
+      const a = []
+      for (let index = 0; index < 10; index++) {
+        a[index] = function () {
+          console.log(index)
+        }
+      }
+      a[6]() // 6
+    **/
+
+// 在代码块内， 使用 let 声明变量前， 变量都会出错 TDZ
+
+/* ********* 暂时性死区 ********* */
+// ----- ES6 -----
+if(true) {
+  // tmp = 'abc';
+  // console.log(tmp);
+  let tmp;
+  console.log(tmp);
+  tmp = 123;
+  console.log(tmp);
+}
+
+// ----- ES5 -----
+// x参数等于另外参数y，而此时 y 并没有声明，属于'死区'
+function fun(x = y, y = 2) {
+  return [x, y]
+}
+fun()
+
+
+
+
+
+
+</script>
+
+</html>
