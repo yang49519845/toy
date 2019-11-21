@@ -4,7 +4,7 @@
 
 #### initMixin
 
-* initLifecycle() 为实例添加 vue 特殊属性, 进行了实例合并
+* initLifecycle() 为实例初始化生命周期
 * initEvents()    为实例初始 event, 创建_events事件管理对象
 * initRender() 为实例添加 initRender 函数 slot、createElement...
 * callHook(vm, 'beforeCreate') 执行 [ beforeCreate ] 回调函数
@@ -17,6 +17,8 @@
 * callHook() 执行 [ created ] 回调函数
 * vm.$mount(vm.$options.el) 挂载元素
 
+    initMixin就做了一件事情，在Vue的原型上增加_init方法，构造Vue实例的时候会调用这个_init方法来初始化Vue实例
+    [https://github.com/answershuto/learnVue/blob/master/vue-src/core/instance/init.js]
 
 #### stateMixin
 
