@@ -1,6 +1,6 @@
 ## new vue 过程
 
-    调用 this._init  
+  调用 this._init
 
 #### initMixin
 
@@ -18,7 +18,18 @@
 * vm.$mount(vm.$options.el) 挂载元素
 
     initMixin就做了一件事情，在Vue的原型上增加_init方法，构造Vue实例的时候会调用这个_init方法来初始化Vue实例
-    [https://github.com/answershuto/learnVue/blob/master/vue-src/core/instance/init.js]
+
+    <https://github.com/answershuto/learnVue/blob/master/vue-src/core/instance/init.js>
+
+====================================
+
+  Vue {constructor: ƒ}
+
+  initMixin(Vue);
+
+  Vue {_init: ƒ, constructor: ƒ}
+
+====================================
 
 #### stateMixin
 

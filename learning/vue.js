@@ -5045,9 +5045,9 @@
   }
 
   function stateMixin(Vue) {
-    // flow somehow has problems with directly declared definition object
-    // when using Object.defineProperty, so we have to procedurally build up
-    // the object here.
+  // 流在直接声明的定义对象上有问题
+  // 当使用Object.defineProperty时，我们必须在程序上建立
+  // 这里的物体
     var dataDef = {};
     dataDef.get = function () {
       return this._data
@@ -5250,14 +5250,14 @@
     this._init(options);
 
   }
-  console.log(' ======  初始中  ====== ')
-  // beforeCreate created 生命周期
+  // Vue {constructor: ƒ}
   initMixin(Vue);
+  // Vue {_init: ƒ, constructor: ƒ}
+
   stateMixin(Vue);
   eventsMixin(Vue);
   lifecycleMixin(Vue);
   renderMixin(Vue);
-  console.log(' ======  初始结束 ======')
 
   /*  */
 
