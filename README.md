@@ -1,6 +1,6 @@
 ## new vue 过程
 
-  调用 this._init
+        调用 this._init
 
 #### initMixin
 
@@ -23,11 +23,11 @@
 
 ====================================
 
-  Vue {constructor: ƒ}
+        Vue {constructor: ƒ}
 
-  initMixin(Vue);
+        initMixin(Vue);
 
-  Vue {_init: ƒ, constructor: ƒ}
+        Vue {_init: ƒ, constructor: ƒ}
 
 ====================================
 
