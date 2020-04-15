@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <fancy-border color="blue">
+        Your Profile
+      </fancy-border> -->
+      <a-dialog title="通用的Dialog" message="欢迎使用"></a-dialog>
+      <welcome-dialog></welcome-dialog>
+      <sign-up-dialog></sign-up-dialog>
+    </div>
+  </body>
+  <script>
+    var obj = {
+      foo: "bar",
+      color: "red",
+    }
+
+    Object.freeze(obj)
+    Vue.component("fancy-border", {
+      props: {
+        color: {
+          type: String,
+          required: false,
+          defaultValue: "red",
+        },
+      },
+      template: [
+        `<div :class="'FancyBorder FancyBorder-' + color">`,
+        "<slot></slot>",
+        "</div>",
+      ].join(""),
+    })
+
+    Vue.component("a-dialog", {
+      props: {
+        title: {
+          type: String,
+          required: false,
+          defaultValue: "title",
+        },
+        message: {
+          type: String,
+          required: false,
+          defaultValue: "message",
+        },
+      },
+
+      template: `
+                <fancy-border color="blue">
+                  <h1 class="Dialog-title">
+                    {{ title }}
+                  </h1>
+                  <p class="Dialog-message">
+                    {{ message }}
+                  </p>
+                  <slot></slot>
+                </fancy-border>
+                `,
+    })
+
+    Vue.component("welcome-dialog", {
+      template: [
+        `<a-dialog title="定制后的dialog" message="欢迎使用定制版dialog!">`,
+        "</a-dialog>",
+      ].join(""),
+    })
+
+    Vue.component("sign-up-dialog", {
+      data() {
+        return {
+          login: ''
+        }
+      },
+      methods: {
+        handleChange(e) {
+          this.login = e.target.value
+        },
+
+        handleSignUp() {
+          alert(`Welcome aboard, ${this.login}!`)
+        },
+      },
+      template: [
+        `<a-dialog title="Mars Exploration Program" message="How should we refer to you?"`,
+        ">",
+        '<input v-model="login" @change="handleChange" />',
+        '<button @click="handleSignUp">Sign Me Up!</button>',
+        "</a-dialog>",
+      ].join(""),
+    })
+
+    var vm = new Vue({
+      el: "#app",
+      data: obj,
+    })
+  </script>
+</html>
