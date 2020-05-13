@@ -1,62 +1,63 @@
 import React, { useRef } from 'react';
 import './style/App.css';
 
-// 受控组件
-class ControlledFormInput extends React.Component {
+class Cat extends React.Component {
+  render() {
+    const mouse = this.props.mouse;
+    return (
+      <img
+        src="http://att3.citysbs.com/200x200/hangzhou/2020/04/15/11/dd6719bd4287d9efd49434c43563a032_v2_.jpg"
+        alt="yytouxiang"
+        style={{
+          position: 'absolute',
+          left: mouse.x,
+          top: mouse.y,
+        }}
+      />
+    );
+  }
+}
+class Mouse extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
     this.state = {
-      value: '',
+      x: 0,
+      y: 0,
     };
   }
-  handleChange(event) {
+  handleMouseMove(e) {
     this.setState({
-      value: event.target.value,
+      x: e.clientX,
+      y: e.clientY,
     });
   }
   render() {
     return (
-      <div>
-        <h1>Hello {this.state.value} !</h1>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-          placeholder="输入内容"
-        />
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+        <h1>移动鼠标</h1>
+        {/**
+        <p>
+          当前鼠标位置是({this.state.x}, {this.state.y})
+        </p>
+         */}
+        {/**
+          <Cat mouse={this.state} />
+        */}
+        {this.props.render(this.state)}
       </div>
     );
   }
 }
-// 非受控组件
-class UnControlledFormInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.inputRef = React.createRef()
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      value: '',
-    };
-  }
-  handleChange() {
-    this.setState({
-      value: this.inputRef.current.value,
-    });
-  }
+
+class MouseTracker extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Hello {this.state.value} !</h1>
-        {/** 受控组件 */}
-        <input
-          type="text"
-          ref={this.inputRef}
-          defaultValue={this.state.value}
-          onChange={this.handleChange}
-          placeholder="输入内容"
-        />
-      </div>
+      // <>
+      //   <h1>move Mouse</h1>
+      //   <Mouse />
+      // </>
+      <Mouse render={(mouse) => <Cat mouse={mouse} />} />
     );
   }
 }
@@ -65,8 +66,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ControlledFormInput />
-        <UnControlledFormInput />
+        <MouseTracker />
       </div>
     );
   }
