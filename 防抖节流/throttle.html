@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            max-width: 600px;
-            padding: 20px;
-            min-height: 1000vh;
-        }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        max-width: 600px;
+        padding: 20px;
+        min-height: 1000vh;
+      }
 
-        .container {
-           width: 20px;
-           height: 20px;
-           position: fixed;
-           bottom: 10px;
-           font-size: 16px;
-        }
+      .container {
+        width: 20px;
+        height: 20px;
+        position: fixed;
+        bottom: 10px;
+        font-size: 16px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container"></div>
-</body>
-
+  </body>
 </html>
-<script
-    src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js">
-</script>
+<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
 <script>
-    $(document).ready(function () {
-        var i = 0;
-        var container = $('.container');
-        $(document).on('scroll', function () {
-            i++;
-            container.html(i);
-        });
+  $(document).ready(function () {
+    var i = 0
+    var container = $('.container')
+    $(document).on('scroll', function () {
+      i++
+      container.html(i)
     })
+  })
 </script>
