@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-10-09 17:05:21
+ * @LastEditTime: 2020-10-30 15:45:16
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Luckysheetd:\ccc\toy\learning\main.js
+ */
 /**
  * new Vue 过程
  * 一. 调用 _init 函数
@@ -17,11 +25,11 @@
  */
 
 var vueApp = new Vue({
-    el: '#app',
-    data: function(){
-        return {
-            message: '123123'
-        }
-    }
+  el: "#app",
+  data: {
+    items: ["a", "b", "c"],
+  },
 });
-
+vueApp.items[1] = 'x' // 不是响应性的
+vueApp.items.length = 2 // 不是响应性的
+Vue.set(vueApp.items, 1, 'x')

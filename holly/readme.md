@@ -93,3 +93,35 @@
 ### Preformance 工具的使用及注意事项
 
 ### 20 个代码层面的优化细节
+
+
+
+ *  vue.set方法 什么情况下会用到？
+
+> [vue.set方法]： <https://cn.vuejs.org/v2/guide/reactivity.html#%E5%A6%82%E4%BD%95%E8%BF%BD%E8%B8%AA%E5%8F%98%E5%8C%96>
+> ``` js
+>    var vm = new Vue({
+>        data: {
+>            a: 1
+>        }
+>    });
+>    
+>    vm.b = 2;
+>
+>    vm.a // 响应式的
+>    vm.b // 非响应式
+> ```
+ *  递归组件的用法  
+ *  什么是动态路由     
+ *  什么是动态组件     
+ *  beforeEach   
+ *  $route 和 $router的区别是什么  
+ *  vue-router 传参  
+ *  async await 
+ *  vuex  
+ *  nextTick 
+ *  vue为什么要写在template里
+ *  怎么定义一个全局组件
+ *  watch和computed的优缺点与区别
+ *  filter find for every some 
+ *  promise 和 async,await
